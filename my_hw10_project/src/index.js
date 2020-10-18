@@ -46,13 +46,18 @@ if (localTheme === Theme.DARK) {
   switcher.checked = true;
 }
 
-// creat Menu
+// creat menu
 
 const menuEl = document.querySelector('.js-menu');
-menuEl.insertAdjacentElement('beforeend', menuMarkup);
+// menuEl.insertAdjacentElement('beforeend', menuMarkup);
 
-const menuMarkup = creatMenu(menu);
+// function creatMenu(menu) {
+//   return menuCards(menu);
+// }
 
 function creatMenu(menu) {
-  return menuCards(menu);
+  const menuMarkup = menu.map(post => menuCards(post)).join('');
+  menuEl.insertAdjacentHTML('beforeend', menuMarkup);
 }
+
+creatMenu(menu);
